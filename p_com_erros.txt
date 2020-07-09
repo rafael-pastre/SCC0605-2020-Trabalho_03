@@ -1,0 +1,71 @@
+program nome1;
+	{<dc_c>}
+	const constA = 5;
+	const constB = 6;
+	const constC = 7;
+	
+	{<dc_v>}
+	var a, b, c :integer;
+	var d 		:integer;
+	var w 		: real;
+	var x, y, z : real;
+	var w 		: real;		{redeclaracao de variaveis}
+	
+	{<dc_p>}
+	procedure procA;
+		var x,r	: real;
+	begin
+		x := 1;
+		r := 3;
+		s := 5.5;			{erro de escopo -> variavel nao declarada}
+		w := 4;				{erro de escopo -> variavel nao declarada}
+		procB();			{procedimento nao declarado}
+	end;
+	
+	procedure procB;
+	begin
+		x := 5;				{erro de escopo -> variavel nao declarada}
+	end;
+	
+	{redeclaracao de procedimentos}
+	procedure procB;
+		var d 	:integer;
+	begin
+		
+	end;
+begin
+	{<comandos>}
+	read(a, b);
+	
+	c := a-b;
+	d := a+b;
+	x := w*x;
+	y := w/x;				{divisao de nao inteiros}
+	d := w;					{atribuicao de real a inteiro}
+	w := d;
+	
+	if a < b then
+		write(a);
+	
+	if a+c <> b+d then
+		write(a)			{na gramatica falta um ponto e virgula}
+	else b:=a+x;			{atribuicao de real a inteiro}
+	
+	while (d>c) do
+	begin
+		write(w, x, y, z);
+		c:=c+1;
+	end;
+	
+	for d := a-b to c do
+		write(d);
+	
+	write(x);
+	read(a, b);
+	read(x, y);
+	read(y, c);				{leitura de tipos de dados diferentes}
+	procA(a);				{numero excessivo de argumentos}
+	procA(a, b);			{numero excessivo de argumentos}
+	procB();
+	procC();				{procedimento nao declarado}		
+end.
